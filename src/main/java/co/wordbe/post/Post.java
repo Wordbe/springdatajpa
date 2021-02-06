@@ -2,6 +2,7 @@ package co.wordbe.post;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -22,5 +23,12 @@ public class Post {
     public void addComent(Comment comment) {
         this.getComments().add(comment);
         comment.setPost(this);
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "title='" + title + '\'' +
+                '}';
     }
 }
