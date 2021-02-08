@@ -2,11 +2,9 @@ package co.wordbe.post;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Date;
 
 @Getter @Setter
 @Entity
@@ -17,18 +15,9 @@ public class Post {
 
     private String title;
 
-    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
-    private Set<Comment> comments = new HashSet<>();
+    @Lob
+    private String content;
 
-    public void addComent(Comment comment) {
-        this.getComments().add(comment);
-        comment.setPost(this);
-    }
-
-    @Override
-    public String toString() {
-        return "Post{" +
-                "title='" + title + '\'' +
-                '}';
-    }
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date created;
 }

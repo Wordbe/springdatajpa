@@ -1,4 +1,4 @@
-package co.wordbe.post;
+package co.wordbe.redpost;
 
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.BeanNameGenerator;

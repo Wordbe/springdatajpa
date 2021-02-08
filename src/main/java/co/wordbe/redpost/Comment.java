@@ -1,4 +1,4 @@
-package co.wordbe.post;
+package co.wordbe.redpost;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -18,7 +18,7 @@ public class Comment {
     private String comment;
 
     @ManyToOne
-    private Post post;
+    private RedPost redPost;
 
     private Integer likeCount = 0;
 }

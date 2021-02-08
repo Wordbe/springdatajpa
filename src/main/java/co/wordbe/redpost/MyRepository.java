@@ -1,4 +1,4 @@
-package co.wordbe.post;
+package co.wordbe.redpost;
 
 import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.data.repository.Repository;

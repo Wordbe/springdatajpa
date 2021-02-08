@@ -1,4 +1,4 @@
-package co.wordbe.post;
+package co.wordbe.redpost;
 
 import lombok.Getter;
 import lombok.Setter;
