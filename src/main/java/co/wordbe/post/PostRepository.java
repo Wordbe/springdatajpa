@@ -1,6 +1,6 @@
 package co.wordbe.post;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import co.wordbe.CommonRepository;
 
-public interface PostRepository extends JpaRepository<Post, Long> {
+public interface PostRepository extends CommonRepository<Post, Long> {
 }
