@@ -1,4 +1,4 @@
-package co.wordbe.post;
+package co.wordbe.bluepost;
 
 import com.querydsl.core.types.Predicate;
 import org.junit.jupiter.api.Test;
@@ -13,31 +13,31 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
 @Import(PostRepositoryTestConfig.class)
-class PostRepositoryTest {
+class BlueBluePostRepositoryTest {
 
     @Autowired
-    PostRepository postRepository;
+    BluePostRepository bluePostRepository;
 
     @Autowired
     ApplicationContext applicationContext;
 
     @Test
     public void event() {
-        Post post = new Post();
-        post.setTitle("내일 해뜬다.");
-        PostPublishEvent event = new PostPublishEvent(post);
+        BluePost bluePost = new BluePost();
+        bluePost.setTitle("내일 해뜬다.");
+        BluePostPublishEvent event = new BluePostPublishEvent(bluePost);
 
         applicationContext.publishEvent(event);
     }
 
     @Test
     public void crud() {
-        Post post = new Post();
-        post.setTitle("Book Dorsey");
-        postRepository.save(post);
+        BluePost bluePost = new BluePost();
+        bluePost.setTitle("Book Dorsey");
+        bluePostRepository.save(bluePost);
 
         Predicate predicate = QPost.post.title.containsIgnoreCase("Dorsey");
-        Optional<Post> one = postRepository.findOne(predicate);
+        Optional<BluePost> one = bluePostRepository.findOne(predicate);
         assertThat(one).isNotEmpty();
 
     }

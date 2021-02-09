@@ -1,4 +1,4 @@
-package co.wordbe.post;
+package co.wordbe.bluepost;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -9,7 +9,7 @@ import java.util.Date;
 
 @Getter @Setter
 @Entity
-public class Post extends AbstractAggregateRoot<Post> {
+public class BluePost extends AbstractAggregateRoot<BluePost> {
 
     @Id @GeneratedValue
     private Long id;
@@ -22,8 +22,8 @@ public class Post extends AbstractAggregateRoot<Post> {
     @Temporal(TemporalType.TIMESTAMP)
     private Date created;
 
-    public Post publish() {
-        this.registerEvent(new PostPublishEvent(this));
+    public BluePost publish() {
+        this.registerEvent(new BluePostPublishEvent(this));
         return this;
     };
 }

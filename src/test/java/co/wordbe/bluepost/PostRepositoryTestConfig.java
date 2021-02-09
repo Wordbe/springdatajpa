@@ -1,4 +1,4 @@
-package co.wordbe.post;
+package co.wordbe.bluepost;
 
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Bean;
@@ -7,8 +7,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class PostRepositoryTestConfig {
     @Bean
-    public ApplicationListener<PostPublishEvent> postListener() {
-        return postPublishEvent ->
-                System.out.println(postPublishEvent.getPost().getTitle() + " published.");
+    public ApplicationListener<BluePostPublishEvent> postListener() {
+        return bluePostPublishEvent ->
+                System.out.println(bluePostPublishEvent.getBluePost().getTitle() + " published.");
     }
 }

@@ -1,4 +1,4 @@
-package co.wordbe.post;
+package co.wordbe.bluepost;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -9,19 +9,19 @@ import java.util.List;
 
 @Repository
 @Transactional
-public class PostCustomRepositoryImpl implements PostCustomRepository<Post> {
+public class BluePostCustomRepositoryImpl implements BluePostCustomRepository<BluePost> {
 
     @Autowired
     EntityManager entityManager;
 
     @Override
-    public List<Post> findMyPost() {
+    public List<BluePost> findMyPost() {
         System.out.println("custom findMyPost");
-        return entityManager.createQuery("SELECT  p FROM  Post AS p", Post.class).getResultList();
+        return entityManager.createQuery("SELECT  p FROM  BluePost AS p", BluePost.class).getResultList();
     }
 
     @Override
-    public void delete(Post entity) {
+    public void delete(BluePost entity) {
         System.out.println("custom delete");
         entityManager.remove(entity);
     }
