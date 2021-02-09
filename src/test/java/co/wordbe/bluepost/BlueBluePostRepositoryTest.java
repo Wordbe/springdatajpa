@@ -12,7 +12,7 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
-@Import(PostRepositoryTestConfig.class)
+@Import(BluePostRepositoryTestConfig.class)
 class BlueBluePostRepositoryTest {
 
     @Autowired
@@ -36,7 +36,7 @@ class BlueBluePostRepositoryTest {
         bluePost.setTitle("Book Dorsey");
         bluePostRepository.save(bluePost);
 
-        Predicate predicate = QPost.post.title.containsIgnoreCase("Dorsey");
+        Predicate predicate = QBluePost.bluePost.title.containsIgnoreCase("Dorsey");
         Optional<BluePost> one = bluePostRepository.findOne(predicate);
         assertThat(one).isNotEmpty();
 
