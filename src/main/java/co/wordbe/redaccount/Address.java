@@ -1,4 +1,4 @@
-package co.wordbe.account;
+package co.wordbe.redaccount;
 
 import javax.persistence.Embeddable;
 

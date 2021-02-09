@@ -1,4 +1,4 @@
-package co.wordbe.account;
+package co.wordbe.redaccount;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -18,5 +18,5 @@ public class Study {
     private String name;
 
     @ManyToOne
-    private Account owner;
+    private RedAccount owner;
 }
