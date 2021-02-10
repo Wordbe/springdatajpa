@@ -36,4 +36,9 @@ class CommentRepositoryTest {
                     System.out.println(c.getComment());
                 });
     }
+
+    @Test
+    public void specs() {
+        commentRepository.findAll(CommentSpecs.isBest());
+    }
 }

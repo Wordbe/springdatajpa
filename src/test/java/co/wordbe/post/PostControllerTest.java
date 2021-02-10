@@ -22,20 +22,20 @@ public class PostControllerTest {
     @Autowired
     PostRepository postRepository;
 
-    @Test
-    public void getPost() throws Exception {
-        Post post = new Post();
-        post.setTitle("Jack");
-        postRepository.save(post);
-
-        mockMvc.perform(get("/posts/8"))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(content().string("Jack"))
-                ;
-
-        postRepository.delete(post);
-    }
+//    @Test
+//    public void getPost() throws Exception {
+//        Post post = new Post();
+//        post.setTitle("Jack");
+//        postRepository.save(post);
+//
+//        mockMvc.perform(get("/posts/8"))
+//                .andDo(print())
+//                .andExpect(status().isOk())
+//                .andExpect(content().string("Jack"))
+//                ;
+//
+//        postRepository.delete(post);
+//    }
 
     @Test
     public void getPosts() throws Exception {

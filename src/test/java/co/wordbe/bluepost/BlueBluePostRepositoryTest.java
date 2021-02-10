@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class BlueBluePostRepositoryTest {
 
     @Autowired
-    BluePostRepositoryRed bluePostRepository;
+    BluePostRepository bluePostRepository;
 
     @Autowired
     ApplicationContext applicationContext;
