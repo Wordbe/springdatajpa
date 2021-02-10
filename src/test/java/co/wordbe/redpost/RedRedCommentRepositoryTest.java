@@ -1,7 +1,5 @@
 package co.wordbe.redpost;
 
-import co.wordbe.redpost.Comment;
-import co.wordbe.redpost.CommentRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -16,37 +14,37 @@ import java.util.concurrent.ExecutionException;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
-class CommentRepositoryTest {
+class RedRedCommentRepositoryTest {
 
     @Autowired
-    CommentRepository commentRepository;
+    RedCommentRepository redCommentRepository;
 
     @Test
     public void crud() throws ExecutionException, InterruptedException {
         // Given
         this.createComment(33, "spring comment1");
         this.createComment(22, "SPRING comment2");
-        commentRepository.flush();
-        List<Comment> all = commentRepository.findAll();
+        redCommentRepository.flush();
+        List<RedComment> all = redCommentRepository.findAll();
         assertThat(all.size()).isEqualTo(2);
 
         PageRequest pageRequest = PageRequest.of(0, 10, Sort.by(Sort.Direction.DESC, "LikeCount"));
 
         // When
-        ListenableFuture<List<Comment>> future =
-                commentRepository.findByCommentContainsIgnoreCase("Spring", pageRequest);
+        ListenableFuture<List<RedComment>> future =
+                redCommentRepository.findByCommentContainsIgnoreCase("Spring", pageRequest);
         System.out.println("is done?" + future.isDone());
 
-        future.addCallback(new ListenableFutureCallback<List<Comment>>() {
+        future.addCallback(new ListenableFutureCallback<List<RedComment>>() {
             @Override
             public void onFailure(Throwable throwable) {
                 System.out.println(throwable);
             }
 
             @Override
-            public void onSuccess(List<Comment> comments) {
+            public void onSuccess(List<RedComment> redComments) {
                 System.out.println(" Async 결과 ");
-                System.out.println(comments.size());
+                System.out.println(redComments.size());
             }
         });
 
@@ -54,9 +52,9 @@ class CommentRepositoryTest {
     }
 
     private void createComment(int likeCount, String comment) {
-        Comment newComment = new Comment();
-        newComment.setLikeCount(likeCount);
-        newComment.setComment(comment);
-        commentRepository.save(newComment);
+        RedComment newRedComment = new RedComment();
+        newRedComment.setLikeCount(likeCount);
+        newRedComment.setComment(comment);
+        redCommentRepository.save(newRedComment);
     }
 }

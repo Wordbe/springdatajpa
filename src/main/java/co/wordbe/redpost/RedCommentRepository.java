@@ -7,8 +7,8 @@ import org.springframework.util.concurrent.ListenableFuture;
 
 import java.util.List;
 
-public interface CommentRepository extends JpaRepository<Comment, Long> {
+public interface RedCommentRepository extends JpaRepository<RedComment, Long> {
 
     @Async
-    ListenableFuture<List<Comment>> findByCommentContainsIgnoreCase(String keyword, Pageable pageable);
+    ListenableFuture<List<RedComment>> findByCommentContainsIgnoreCase(String keyword, Pageable pageable);
 }

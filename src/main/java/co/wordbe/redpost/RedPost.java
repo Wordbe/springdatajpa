@@ -17,11 +17,11 @@ public class RedPost {
     private String title;
 
     @OneToMany(mappedBy = "redPost", cascade = CascadeType.ALL)
-    private Set<Comment> comments = new HashSet<>();
+    private Set<RedComment> redComments = new HashSet<>();
 
-    public void addComent(Comment comment) {
-        this.getComments().add(comment);
-        comment.setRedPost(this);
+    public void addComent(RedComment redComment) {
+        this.getRedComments().add(redComment);
+        redComment.setRedPost(this);
     }
 
     @Override

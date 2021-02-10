@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 
 @Getter @Setter
 @Entity
-public class Comment {
+public class RedComment {
 
     @Id @GeneratedValue
     private Long id;
