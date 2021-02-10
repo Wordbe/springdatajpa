@@ -3,15 +3,19 @@ package co.wordbe.post;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
+import java.util.List;
+
 import static co.wordbe.post.CommentSpecs.isBest;
 import static co.wordbe.post.CommentSpecs.isGood;
+import static org.assertj.core.api.Assertions.assertThat;
 
-@DataJpaTest
+@SpringBootTest
 class CommentRepositoryTest {
 
     @Autowired
@@ -33,15 +37,19 @@ class CommentRepositoryTest {
         comment.setDown(2);
         commentRepository.save(comment);
 
-        commentRepository.findByPost_Id(savedPost.getId(), CommentSummary.class)
-            .forEach(c -> {
-                System.out.println(c.getVotes());
-            });
+        List<Comment> all = commentRepository.findAll();
 
-        commentRepository.findByPost_Id(savedPost.getId(), CommentOnly.class)
-                .forEach(c -> {
-                    System.out.println(c.getComment());
-                });
+        assertThat(all.size()).isEqualTo(1);
+
+//        commentRepository.findByPost_Id(savedPost.getId(), CommentSummary.class)
+//            .forEach(c -> {
+//                System.out.println(c.getVotes());
+//            });
+//
+//        commentRepository.findByPost_Id(savedPost.getId(), CommentOnly.class)
+//                .forEach(c -> {
+//                    System.out.println(c.getComment());
+//                });
     }
 
     @Test
