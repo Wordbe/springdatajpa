@@ -30,5 +30,5 @@ Spring Data JPA Project
     
 
 hibernate lifecycle
-![hibernate lifecycle](./images/Hibernate LifeCycle.png)
+![hibernate lifecycle](https://github.com/Wordbe/springdatajpa/blob/main/images/Hibernate%20LifeCycle.png)
 
